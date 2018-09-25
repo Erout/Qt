@@ -90,6 +90,7 @@ public:
 
         retranslateUi(LoginDialog);
         QObject::connect(addBtn, SIGNAL(clicked()), LoginDialog, SLOT(add()));
+        QObject::connect(loginBtn, SIGNAL(clicked()), LoginDialog, SLOT(accept()));
 
         QMetaObject::connectSlotsByName(LoginDialog);
     } // setupUi

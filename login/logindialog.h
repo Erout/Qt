@@ -19,6 +19,9 @@ public:
     double getInpX();
     int getInstruction();
     void showResult(std::string s);
+    bool quitStatus();
+    bool Calculate();
+    void reSetCalculate();
 private slots:
     void on_exitBtn_clicked();
     void on_loginBtn_clicked();
@@ -35,6 +38,8 @@ private:
     bool derStatus;
     bool mulStatus;
     bool InpStatus;
+    bool quit;
+    bool cal;
 };
 
 #endif // LOGINDIALOG_H

@@ -6,6 +6,8 @@ LoginDialog::LoginDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     clearStatus();
+    quit = false;
+    cal = true;
 }
 
 LoginDialog::~LoginDialog()
@@ -17,10 +19,9 @@ void LoginDialog::on_exitBtn_clicked()
 {
     close();
 }
-
 void LoginDialog::on_loginBtn_clicked()
 {
-    accept();
+    cal = true;
 }
 void LoginDialog::clearStatus(){
     addStatus = false;
@@ -76,4 +77,13 @@ int LoginDialog::getInstruction(){
        return 5;
    else
        return 0;
+}
+bool LoginDialog::quitStatus(){
+    return quit;
+}
+bool LoginDialog::Calculate(){
+    return cal;
+}
+void LoginDialog::reSetCalculate(){
+    cal = false;
 }

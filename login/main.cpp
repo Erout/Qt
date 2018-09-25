@@ -14,32 +14,38 @@ int main(int argc, char *argv[])
     LoginDialog dlg;
     Calculator ca;
     dlg.show();
-    if(dlg.exec()  == QDialog::Accepted){
-        w.show();
-    }
-    string s1,s2;
-        int ins = dlg.getInstruction();
-        switch(ins){
-        case 0:
-            break;
-        case 1:
-            s1 = dlg.getFirstText();
-            s2 = dlg.getSecondText();
-            ca.Input(s1,1);
-            ca.Input(s2,2);
-            ca.add();
-            dlg.showResult(ca.getResult());
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-             break;
-        case 5:
-            break;
-        default:
+    while(1){
+        string s1,s2;
+        int ins;
+        if(dlg.Calculate()==true){
+            ins = dlg.getInstruction();
+            switch(ins){
+            case 0:
+                break;
+            case 1:
+                s1 = dlg.getFirstText();
+                s2 = dlg.getSecondText();
+                ca.Input(s1,1);
+                ca.Input(s2,2);
+                ca.add();
+                dlg.showResult(ca.getResult());
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                 break;
+            case 5:
+                break;
+            default:
+                break;
+            }
+            dlg.reSetCalculate();
+        }
+        if(dlg.quitStatus()==true){
             break;
         }
+    }
     return a.exec();
 }
