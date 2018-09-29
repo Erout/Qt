@@ -1,5 +1,4 @@
 #include "widget.h"
-#include "Calculator.hpp"
 #include <QApplication>
 #include <iostream>
 int main(int argc, char *argv[])

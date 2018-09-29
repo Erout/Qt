@@ -23,10 +23,11 @@ public:
 	bool add();
 	bool subtract();
 	bool multiple();
-	void display();
-	string getResult();
-	string getFirstInput();
-	string getSecondInput();
+    //void display();
+    string listToString(single* head);
+    //string getResult();
+    //string getFirstInput();
+    //string getSecondInput();
 	void showResult();
 	void derivative(int id);
 	double valueOfX(double x,int id);
@@ -47,4 +48,5 @@ private:
 	void clearResult();
 	void clear();
 	void sort();
+    void sortTool(single* head);
 };

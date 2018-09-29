@@ -24,12 +24,10 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        widget.cpp \
-    Calculator.cpp
+        widget.cpp
 
 HEADERS += \
-        widget.h \
-    Calculator.hpp
+        widget.h
 
 FORMS += \
         widget.ui
