@@ -27,7 +27,7 @@ public:
     void clear();
     string opNToString();
     string opSToString();
-    void compute();
+    bool compute();
     friend int stringToInt(string s);
     friend bool isNumber(char c);
     friend bool equalTo(char a,char b);
@@ -48,6 +48,7 @@ private slots:
     void on_sub_clicked();
     void on_mul_clicked();
     void on_exc_clicked();
+    void on_exp_clicked();
     void on_leftKuo_clicked();
     void on_rightKuo_clicked();
     void on_equal_clicked();

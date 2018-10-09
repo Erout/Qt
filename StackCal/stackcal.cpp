@@ -48,17 +48,22 @@ bool smallerThan(char a,char b){
     else if(a == '(')
         return true;
     else if((a == '*')||(a == '/')){
-        if(b == '(')
+        if((b == '(')||(b == '^'))
             return true;
         return false;
     }
     else if((a == '+')||(a == '-')){
-        if((b == '*')||(b == '/')||(b == '('))
+        if((b == '*')||(b == '/')||(b == '(')||(b == '^'))
+            return true;
+        return false;
+    }
+    else if(a == '^'){
+        if(b == '(')
             return true;
         return false;
     }
     return false;
-}
+} 
 int calculate(int front,int back, char operate){
     int result = 0;
     switch(operate){
@@ -73,6 +78,10 @@ int calculate(int front,int back, char operate){
             break;
         case '/':
             result = front/back;
+            break;
+        case '^':
+            result = pow(front,back);
+            break;
     }
     return result;
 }
@@ -154,8 +163,10 @@ string StackCal::opSToString(){
     }
     return s;
 }
-void StackCal::compute(){
+bool StackCal::compute(){
     int pos = 0;
+    int metSign = 0, metLeft = 0;
+    int tempTop;
     string tempNum;
     string operation;
     char temp;
@@ -182,6 +193,49 @@ void StackCal::compute(){
                 operation.clear();
                 tempNum.clear();//清空tempNum
             }
+            //处理负号
+            if((metLeft == 1)&&((expression[pos]=='-')||(expression[pos]=='+'))){
+                tempNum += expression[pos];
+                pos++;
+                metLeft = 0;
+                continue;
+            }
+            //处理加加减减
+            if((metSign == 1)&&((expression[pos] == '-')||(expression[pos]  == '+'))){
+                opSign.pop();
+                SFlag--;
+                tempTop = opNum.top();
+                opNum.pop();
+                NFlag--;
+                if(expression[pos] == '-'){
+                    opNum.push(tempTop-1);
+                    opN[NFlag++] = tempTop -1;
+                }
+                else{
+                    opNum.push(tempTop+1);
+                    opN[NFlag++] = tempTop +1;
+                }
+                metSign = 0;
+                model->setItem(row,0,new QStandardItem(QString::fromStdString(opSToString())));
+                model->setItem(row,1,new QStandardItem(QString::fromStdString(opNToString())));
+                model->setItem(row,2,new QStandardItem(QString::fromStdString(expression.substr(pos,expression.size()-pos))));
+                operation += "从符号栈中取出";
+                operation += expression[pos];
+                operation += "形成";
+                operation += expression[pos];
+                operation += expression[pos];
+                operation += ",取出数";
+                sprintf(ntemp,"%d",tempTop);
+                operation += ntemp;
+                operation += "进行操作，并将结果";
+                sprintf(ntemp,"%d",opN[NFlag-1]);
+                operation += ntemp;
+                operation += "入栈";
+                model->setItem(row,3,new QStandardItem(QString::fromStdString(operation)));
+                row++;
+                pos++;
+                continue;
+            }
             //若两个操作符优先级相等，那么弹符号栈
             if(equalTo(opSign.top(),expression[pos])){
                 temp = opSign.top();
@@ -198,8 +252,16 @@ void StackCal::compute(){
                 pos++;
             }
             //若栈顶元素比读入的优先级低，那么符号入栈
-            else if(smallerThan(opSign.top(),expression[pos])){
+            else if(smallerThan(opSign.top(),expression[pos])||((expression[pos] == '+')&&(expression[pos+1] == '+'))||((expression[pos] == '-')&&(expression[pos+1]=='-'))){
                 opSign.push(expression[pos]);
+                if(expression[pos] == '('){
+                    metLeft = 1;
+                    metSign = 0;
+                }
+                else if((expression[pos] =='-')||(expression[pos]=='+')){
+                    metSign = 1;
+                    metLeft = 0;
+                }
                 opS[SFlag++] = expression[pos];
                 model->setItem(row,0,new QStandardItem(QString::fromStdString(opSToString())));
                 model->setItem(row,1,new QStandardItem(QString::fromStdString(opNToString())));
@@ -227,6 +289,10 @@ void StackCal::compute(){
                 operation += opSign.top();
                 operation += "操作";
                 NFlag -= 2;
+                if((opSign.top()=='/')&&(back == 0)){
+                    model->setItem(row,3,new QStandardItem(QString::fromStdString("被除数为0，无法进行计算")));
+                    return false;
+                }
                 opNum.push(calculate(front,back,opSign.top()));
                 opN[NFlag++] = calculate(front,back,opSign.top());
                 opSign.pop();
@@ -243,8 +309,10 @@ void StackCal::compute(){
         else{
             tempNum += expression[pos];
             pos++;
+            metLeft = metSign = 0;
         }
     }
+    return true;
 }
 void StackCal::on_one_clicked(){
     expression += '1';
@@ -300,6 +368,10 @@ void StackCal::on_mul_clicked(){
 }
 void StackCal::on_exc_clicked(){
     expression += '/';
+    ui->textBrowser->setText(QString::fromStdString(expression));
+}
+void StackCal::on_exp_clicked(){
+    expression += '^';
     ui->textBrowser->setText(QString::fromStdString(expression));
 }
 void StackCal::on_leftKuo_clicked(){

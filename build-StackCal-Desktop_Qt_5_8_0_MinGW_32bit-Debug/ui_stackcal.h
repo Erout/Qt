@@ -46,6 +46,7 @@ public:
     QPushButton *leftKuo;
     QPushButton *rightKuo;
     QTextBrowser *textBrowser_2;
+    QPushButton *exp;
 
     void setupUi(QWidget *StackCal)
     {
@@ -105,7 +106,7 @@ public:
         textBrowser->setGeometry(QRect(40, 20, 351, 51));
         equal = new QPushButton(StackCal);
         equal->setObjectName(QStringLiteral("equal"));
-        equal->setGeometry(QRect(330, 230, 60, 131));
+        equal->setGeometry(QRect(330, 300, 60, 61));
         tableView = new QTableView(StackCal);
         tableView->setObjectName(QStringLiteral("tableView"));
         tableView->setGeometry(QRect(40, 380, 951, 271));
@@ -118,6 +119,9 @@ public:
         textBrowser_2 = new QTextBrowser(StackCal);
         textBrowser_2->setObjectName(QStringLiteral("textBrowser_2"));
         textBrowser_2->setGeometry(QRect(440, 20, 541, 341));
+        exp = new QPushButton(StackCal);
+        exp->setObjectName(QStringLiteral("exp"));
+        exp->setGeometry(QRect(330, 230, 60, 60));
 
         retranslateUi(StackCal);
 
@@ -161,6 +165,7 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:18pt;\"> C\357\274\232\346\270\205\347\251\272</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:18pt;\"> X\357\274\232\345\210\240\346\216\211\344\270\200\344\270\252\346\225\260\345\255\227\346\210\226\347\254\246\345\217\267</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:18pt;\">\346\204\237\350\260\242\346\202\250\347\232\204\344\275\277\347\224\250\357\274\201</span></p></body></html>", Q_NULLPTR));
+        exp->setText(QApplication::translate("StackCal", "^", Q_NULLPTR));
     } // retranslateUi
 
 };
