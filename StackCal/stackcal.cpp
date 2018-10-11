@@ -105,6 +105,7 @@ StackCal::StackCal(QWidget *parent) :
     ui->tableView->setColumnWidth(1,200);
     ui->tableView->setColumnWidth(2,200);
     ui->tableView->setColumnWidth(3,500);
+    uiColor();
 }
 
 StackCal::~StackCal()
@@ -165,7 +166,7 @@ string StackCal::opSToString(){
 }
 bool StackCal::compute(){
     int pos = 0;
-    int metSign = 0, metLeft = 0;
+    int metSign = 0, metLeft = 1;
     int tempTop;
     string tempNum;
     string operation;
@@ -272,6 +273,7 @@ bool StackCal::compute(){
                 model->setItem(row,3,new QStandardItem(QString::fromStdString(operation)));
                 row++;
                 pos++;
+                operation.clear();
             }
             //否则，从数栈中取出两个数，从符号栈中取出一个符号，进行计算，且未进栈的符号继续进行判断
             else{    
@@ -287,7 +289,7 @@ bool StackCal::compute(){
                 operation += ntemp;
                 operation += "进行";
                 operation += opSign.top();
-                operation += "操作";
+                operation += "操作,并将结果入栈";
                 NFlag -= 2;
                 if((opSign.top()=='/')&&(back == 0)){
                     model->setItem(row,3,new QStandardItem(QString::fromStdString("被除数为0，无法进行计算")));
@@ -297,11 +299,14 @@ bool StackCal::compute(){
                 opN[NFlag++] = calculate(front,back,opSign.top());
                 opSign.pop();
                 SFlag--;
+                if(1){
                 model->setItem(row,0,new QStandardItem(QString::fromStdString(opSToString())));
                 model->setItem(row,1,new QStandardItem(QString::fromStdString(opNToString())));
                 model->setItem(row,2,new QStandardItem(QString::fromStdString(expression.substr(pos,expression.size()-pos))));
                 model->setItem(row,3,new QStandardItem(QString::fromStdString(operation)));
                 row++;
+                }
+                operation.clear();
                 //这里pos不++继续进行判断
             }
         }
@@ -399,4 +404,11 @@ void StackCal::on_clear_clicked(){
 void StackCal::on_erase_clicked(){
     eraseOne();
     ui->textBrowser->setText(QString::fromStdString(expression));
+}
+void StackCal::uiColor(){
+    QPalette p = this->palette();
+    //p.setColor(QPalette::Window,QColor(88,178,220));
+    //p.setColor(QPalette::Button,QColor(252,249,156));
+    //p.setColor(QPalette::ButtonText,QColor(252,249,156));
+    this->setPalette(p);
 }

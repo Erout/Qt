@@ -1,0 +1,14 @@
+/*0-9*/
+QPushButton{
+	background-color: rgb(252,249,156);
+	color:black ;
+	font-family:'Comic Sans MS', cursive, sans-serif;
+	font-size:16px;
+	border:none;
+	border-radius: 30px 30px 30px 30px;
+ }
+QPushButton:hover{
+	background-color:rgb(249,191,69);
+ }
+
+ 232,122,144

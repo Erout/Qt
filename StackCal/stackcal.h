@@ -28,6 +28,7 @@ public:
     string opNToString();
     string opSToString();
     bool compute();
+    void uiColor();
     friend int stringToInt(string s);
     friend bool isNumber(char c);
     friend bool equalTo(char a,char b);
@@ -57,13 +58,13 @@ private slots:
 private:
     Ui::StackCal *ui;
     QStandardItemModel* model ;
-    string expression;
+    string expression;//存储表达式
     stack<int> opNum;//储存操作数
     stack<char> opSign;//储存运算符
-    int opN[100];
-    char opS[100];
-    int NFlag;
-    int SFlag;
+    int opN[100];//操作数栈中的内容，用来显示输出
+    char opS[100];//操作符栈的内容，用来显示输出
+    int NFlag;//opN的标志
+    int SFlag;//opS的标志
 };
 
 #endif // STACKCAL_H
