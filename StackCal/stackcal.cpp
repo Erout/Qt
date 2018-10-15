@@ -291,6 +291,7 @@ bool StackCal::compute(){
                 operation += opSign.top();
                 operation += "操作,并将结果入栈";
                 NFlag -= 2;
+                //被除数为0的情况
                 if((opSign.top()=='/')&&(back == 0)){
                     model->setItem(row,3,new QStandardItem(QString::fromStdString("被除数为0，无法进行计算")));
                     return false;
@@ -389,12 +390,17 @@ void StackCal::on_rightKuo_clicked(){
 }
 void StackCal::on_equal_clicked(){
     expression += '#';
-    compute();
     char* c = new char[5];
     string s;
-    sprintf(c,"%d",opNum.top());
-    s += c;
-    ui->textBrowser->setText(QString::fromStdString(s));
+    if(compute()== 1){
+        sprintf(c,"%d",opNum.top());
+        s += c;
+        ui->textBrowser->setText(QString::fromStdString(s));
+    }
+    else{
+        clear();
+        ui->textBrowser->setText((QString::fromStdString(("Invalid input"))));
+    }
 
 }
 void StackCal::on_clear_clicked(){
