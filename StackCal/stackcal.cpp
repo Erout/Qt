@@ -45,8 +45,12 @@ bool smallerThan(char a,char b){
         return true;
     else if(a == ')')
         return false;
-    else if(a == '(')
-        return true;
+    else if(a == '('){
+        if(b != '#')
+            return true;
+        else
+            return false;
+    }
     else if((a == '*')||(a == '/')){
         if((b == '(')||(b == '^'))
             return true;
@@ -205,6 +209,8 @@ bool StackCal::compute(){
             if((metSign == 1)&&((expression[pos] == '-')||(expression[pos]  == '+'))){
                 opSign.pop();
                 SFlag--;
+                if(opNum.empty())
+                    return false;
                 tempTop = opNum.top();
                 opNum.pop();
                 NFlag--;
@@ -278,11 +284,15 @@ bool StackCal::compute(){
             //否则，从数栈中取出两个数，从符号栈中取出一个符号，进行计算，且未进栈的符号继续进行判断
             else{    
                 operation +="从数栈取出";
+                if(opNum.empty())
+                    return false;
                 back = opNum.top();
                 opNum.pop();
                 sprintf(ntemp,"%d",back);
                 operation += ntemp;
                 operation += "和";
+                if(opNum.empty())
+                    return false;
                 front = opNum.top();
                 opNum.pop();
                 sprintf(ntemp,"%d",front);
@@ -296,6 +306,8 @@ bool StackCal::compute(){
                     model->setItem(row,3,new QStandardItem(QString::fromStdString("被除数为0，无法进行计算")));
                     return false;
                 }
+                if((opSign.top() == '(')||(opSign.top() == ')'))
+                    return false;
                 opNum.push(calculate(front,back,opSign.top()));
                 opN[NFlag++] = calculate(front,back,opSign.top());
                 opSign.pop();
@@ -318,6 +330,8 @@ bool StackCal::compute(){
             metLeft = metSign = 0;
         }
     }
+    if(opNum.size() != 1)
+        return false;
     return true;
 }
 void StackCal::on_one_clicked(){

@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QTextBrowser>
@@ -47,322 +48,388 @@ public:
     QPushButton *rightKuo;
     QTextBrowser *textBrowser_2;
     QPushButton *exp;
+    QLabel *label;
 
     void setupUi(QWidget *StackCal)
     {
         if (StackCal->objectName().isEmpty())
             StackCal->setObjectName(QStringLiteral("StackCal"));
-        StackCal->resize(1011, 684);
+        StackCal->resize(1059, 770);
         StackCal->setStyleSheet(QLatin1String("QWidget{\n"
-"background-color:rgb(88,178,220);\n"
+"	background-color:rgb(177,150,147);\n"
 "}"));
         one = new QPushButton(StackCal);
         one->setObjectName(QStringLiteral("one"));
-        one->setGeometry(QRect(40, 90, 60, 60));
+        one->setGeometry(QRect(60, 160, 60, 60));
         one->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         two = new QPushButton(StackCal);
         two->setObjectName(QStringLiteral("two"));
-        two->setGeometry(QRect(110, 90, 60, 60));
+        two->setGeometry(QRect(130, 160, 60, 60));
         two->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         three = new QPushButton(StackCal);
         three->setObjectName(QStringLiteral("three"));
-        three->setGeometry(QRect(180, 90, 60, 60));
+        three->setGeometry(QRect(200, 160, 60, 60));
         three->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         four = new QPushButton(StackCal);
         four->setObjectName(QStringLiteral("four"));
-        four->setGeometry(QRect(40, 160, 60, 60));
+        four->setGeometry(QRect(60, 230, 60, 60));
         four->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         five = new QPushButton(StackCal);
         five->setObjectName(QStringLiteral("five"));
-        five->setGeometry(QRect(110, 160, 60, 60));
+        five->setGeometry(QRect(130, 230, 60, 60));
         five->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         six = new QPushButton(StackCal);
         six->setObjectName(QStringLiteral("six"));
-        six->setGeometry(QRect(180, 160, 60, 60));
+        six->setGeometry(QRect(200, 230, 60, 60));
         six->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         seven = new QPushButton(StackCal);
         seven->setObjectName(QStringLiteral("seven"));
-        seven->setGeometry(QRect(40, 230, 60, 60));
+        seven->setGeometry(QRect(60, 300, 60, 60));
         seven->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         eight = new QPushButton(StackCal);
         eight->setObjectName(QStringLiteral("eight"));
-        eight->setGeometry(QRect(110, 230, 60, 60));
+        eight->setGeometry(QRect(130, 300, 60, 60));
         eight->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         nine = new QPushButton(StackCal);
         nine->setObjectName(QStringLiteral("nine"));
-        nine->setGeometry(QRect(180, 230, 60, 60));
+        nine->setGeometry(QRect(200, 300, 60, 60));
         nine->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         zero = new QPushButton(StackCal);
         zero->setObjectName(QStringLiteral("zero"));
-        zero->setGeometry(QRect(110, 300, 60, 60));
+        zero->setGeometry(QRect(130, 370, 60, 60));
         zero->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(252,249,156);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
+"	transition:all 0.5s;\n"
 " }\n"
 "QPushButton:hover{\n"
 "	background-color:rgb(249,191,69);\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 " }"));
         erase = new QPushButton(StackCal);
         erase->setObjectName(QStringLiteral("erase"));
-        erase->setGeometry(QRect(180, 300, 60, 60));
+        erase->setGeometry(QRect(200, 370, 60, 60));
         erase->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(251,150,110);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(247,92,47);\n"
 "}"));
         clear = new QPushButton(StackCal);
         clear->setObjectName(QStringLiteral("clear"));
-        clear->setGeometry(QRect(40, 300, 60, 60));
+        clear->setGeometry(QRect(60, 370, 60, 60));
         clear->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(251,150,110);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(247,92,47);\n"
 "}"));
         add = new QPushButton(StackCal);
         add->setObjectName(QStringLiteral("add"));
-        add->setGeometry(QRect(260, 90, 60, 60));
+        add->setGeometry(QRect(280, 160, 60, 60));
         add->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(254,223,225);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(245,150,170);\n"
 "}"));
         sub = new QPushButton(StackCal);
         sub->setObjectName(QStringLiteral("sub"));
-        sub->setGeometry(QRect(260, 160, 60, 60));
+        sub->setGeometry(QRect(280, 230, 60, 60));
         sub->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(254,223,225);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(245,150,170);\n"
 "}"));
         mul = new QPushButton(StackCal);
         mul->setObjectName(QStringLiteral("mul"));
-        mul->setGeometry(QRect(260, 230, 60, 60));
+        mul->setGeometry(QRect(280, 300, 60, 60));
         mul->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(254,223,225);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(245,150,170);\n"
 "}"));
         exc = new QPushButton(StackCal);
         exc->setObjectName(QStringLiteral("exc"));
-        exc->setGeometry(QRect(260, 300, 60, 60));
+        exc->setGeometry(QRect(280, 370, 60, 60));
         exc->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(254,223,225);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(245,150,170);\n"
 "}"));
         textBrowser = new QTextBrowser(StackCal);
         textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(30, 20, 371, 51));
+        textBrowser->setGeometry(QRect(50, 90, 371, 51));
         textBrowser->setStyleSheet(QLatin1String("QTextBrowser{\n"
-"background-color:white;\n"
+"background-color:rgb(255,255,251);\n"
 "font-family:'Comic Sans MS', cursive, sans-serif;\n"
 "font-size:20px;\n"
 "border:none;\n"
 "}"));
         equal = new QPushButton(StackCal);
         equal->setObjectName(QStringLiteral("equal"));
-        equal->setGeometry(QRect(330, 300, 60, 61));
+        equal->setGeometry(QRect(350, 370, 60, 61));
         equal->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(168,216,185);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-weight:bold;\n"
+"	font-size:30px;\n"
 "	background-color:rgb(93,172,129);\n"
 "}"));
         tableView = new QTableView(StackCal);
         tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(30, 390, 951, 271));
+        tableView->setGeometry(QRect(50, 460, 951, 271));
         tableView->setStyleSheet(QLatin1String("QTableView{\n"
-"	background-color:white;\n"
+"	background-color:rgb(255,255,251);\n"
 "	border:none;\n"
 "	border-radius:20 20 20 20;\n"
 "}"));
         leftKuo = new QPushButton(StackCal);
         leftKuo->setObjectName(QStringLiteral("leftKuo"));
-        leftKuo->setGeometry(QRect(330, 90, 60, 60));
+        leftKuo->setGeometry(QRect(350, 160, 60, 60));
         leftKuo->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(254,223,225);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(245,150,170);\n"
 "}"));
         rightKuo = new QPushButton(StackCal);
         rightKuo->setObjectName(QStringLiteral("rightKuo"));
-        rightKuo->setGeometry(QRect(330, 160, 60, 60));
+        rightKuo->setGeometry(QRect(350, 230, 60, 60));
         rightKuo->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(254,223,225);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(245,150,170);\n"
 "}"));
         textBrowser_2 = new QTextBrowser(StackCal);
         textBrowser_2->setObjectName(QStringLiteral("textBrowser_2"));
-        textBrowser_2->setGeometry(QRect(460, 20, 521, 341));
+        textBrowser_2->setGeometry(QRect(480, 90, 521, 341));
         textBrowser_2->setStyleSheet(QLatin1String("QTextBrowser{\n"
 "	font-family:\"Microsoft YaHei\",SimHei;\n"
 "	font-size:10px;\n"
-"	background-color:white;\n"
+"	background-color:rgb(255,255,251);\n"
 "	color:black;\n"
 "	border:none;\n"
 "	border-radius:20 20 20 20;\n"
 "}"));
         exp = new QPushButton(StackCal);
         exp->setObjectName(QStringLiteral("exp"));
-        exp->setGeometry(QRect(330, 230, 60, 60));
+        exp->setGeometry(QRect(350, 300, 60, 60));
         exp->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(254,223,225);\n"
 "	color:black ;\n"
 "	font-family:'Comic Sans MS', cursive, sans-serif;\n"
-"	font-size:22px;\n"
+"	font-size:20px;\n"
 "	border:none;\n"
 "	border-radius: 30px 30px 30px 30px;\n"
 " }\n"
 "QPushButton:hover{\n"
+"	font-size:25px;\n"
+"	font-weight:bold;\n"
 "	background-color:rgb(245,150,170);\n"
+"}"));
+        label = new QLabel(StackCal);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(370, 10, 481, 61));
+        QFont font;
+        font.setFamily(QStringLiteral("Microsoft YaHei Light"));
+        font.setBold(true);
+        font.setWeight(75);
+        label->setFont(font);
+        label->setStyleSheet(QLatin1String("QLabel{\n"
+"	letter-spacing:3px;\n"
+"	color:rgb(255,255,251);\n"
+"	font-weight:bold;\n"
+"	font-size:50px;\n"
+"	font-family:\"Microsoft YaHei Light\";\n"
 "}"));
 
         retranslateUi(StackCal);
@@ -415,6 +482,7 @@ public:
                         "style=\" font-family:'Microsoft YaHei'; font-size:10pt;\">3.\345\234\250\346\214\211=\344\271\213\345\220\216\350\246\201\350\277\233\350\241\214\344\270\213\344\270\200\344\270\252\345\274\217\345\255\220\347\232\204\346\223\215\344\275\234\357\274\214\350\257\267\345\205\210\346\270\205\347\251\272\344\270\212\344\270\200\345\274\217\345\255\220</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Microsoft YaHei'; font-size:10pt;\">\346\204\237\350\260\242\346\202\250\347\232\204\344\275\277\347\224\250\357\274\201</span></p></body></html>", Q_NULLPTR));
         exp->setText(QApplication::translate("StackCal", "^", Q_NULLPTR));
+        label->setText(QApplication::translate("StackCal", "\347\256\200 \346\230\223 \350\256\241 \347\256\227 \345\231\250", Q_NULLPTR));
     } // retranslateUi
 
 };
